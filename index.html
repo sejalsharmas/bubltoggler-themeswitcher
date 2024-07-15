@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bulb Toggler</title>
+    <style>
+      .heading{
+        text-align: center;
+        margin-top: 70px;
+        font-size: 50px;
+        color: beige;
+      }
+
+      .bulb-img {
+        height: 300px;
+        display: block;
+        margin: 20px auto;
+      }
+
+      .btn-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 45px;
+        margin-top: 50px;
+      }
+
+      .btn {
+        width: 130px;
+        height: 40px;
+        border: 3px wheat solid;
+      }
+
+      .btn-off {
+        background-color: black;
+        color: white;
+        border-radius: 10px;
+
+      }
+
+      .btn-on {
+        background-color: yellow;
+        color: black;
+        border-radius: 10px;
+      }
+
+      .btn-on:hover {
+        box-shadow: 0px 5px 5px 0px yellow;
+      }
+
+      .btn-off:hover {
+        box-shadow: 5px 5px 5px 5px  black;
+      }
+
+      .quote{
+         color:beige;
+         margin-top: 50px;
+         margin-left: 580px;
+         font-size: 30px;
+         position: absolute;
+      }
+      .theme-selector-container{
+       display: block;
+       margin-left: 1150px;
+       
+    }
+    .btn1{
+        background-color: black;
+        color:beige;
+        font-size: 15px;
+        padding: 5px 25px;
+        border: 1px solid white;
+        border-radius: 20px;
+        margin-right: 20px;
+        cursor: pointer;
+    }
+    .btn2{
+        background-color: black;
+        color:beige;
+        font-size: 15px;
+        padding: 5px 25px;
+        border: 1px solid white;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+    .bg-dark{
+        background-color: black;
+        color:beige
+    }
+    .bg-light{
+        background-image: linear-gradient( 111.4deg,  rgba(7,7,9,1) 6.5%, rgba(27,24,113,1) 93.2% );
+    }
+    </style>
+  </head>
+  <body class="bg-light" id="main-body">
+    <div class="theme-selector-container">
+    <button class="btn1" onclick="enableLight()">LIGHT MODE</button>
+    <button class="btn2" onclick="enableDark()">DARK MODE</button>
+</div>
+    <h1 class="heading">Bulb Toggler</h1>
+
+    <img src="images/bulb_off.png" class="bulb-img" id="img-bulb" />
+
+    <div class="btn-container">
+      <button type="button" class="btn btn-on" onclick="bulbOn()">ON</button>
+
+      <button type="button" class="btn btn-off" onclick="bulbOff()">OFF</button>
+    </div>
+    <span class="quote">
+        <b>LIGHT UP YOUR WORLD!</b>
+    </span>
+    <script>
+      function bulbOn() {
+        const bulbElement = document.getElementById("img-bulb");
+        bulbElement.src = "images/bulb_on.png";
+      }
+
+      function bulbOff() {
+        const bulbElement = document.getElementById("img-bulb");
+        bulbElement.src = "images/bulb_off.png";
+      }
+
+      function enableDark(){
+             const mainbody =document.getElementById("main-body")
+             mainbody.classList.remove("bg-light")
+             mainbody.classList.add("bg-dark")
+      }
+      function enableLight(){
+        const mainbody =document.getElementById("main-body")
+             mainbody.classList.remove("bg-dark")
+             mainbody.classList.add("bg-light")
+      }
+
+    </script>
+  </body>
+</html>
